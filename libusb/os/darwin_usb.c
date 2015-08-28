@@ -625,8 +625,8 @@ static int darwin_request_descriptor (usb_device_t **device, UInt8 desc, UInt8 d
   req.wIndex        = desc_index;
   req.wLength       = buffer_size;
   req.pData         = buffer;
-  req.noDataTimeout = 20;
-  req.completionTimeout = 100;
+  req.noDataTimeout = kUSBDefaultControlNoDataTimeoutMS;
+  req.completionTimeout = kUSBDefaultControlCompletionTimeoutMS;
 
   return (*device)->DeviceRequestTO (device, &req);
 }
